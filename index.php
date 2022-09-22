@@ -43,6 +43,28 @@ $faqs = [
     'answer' => "<p>In alcuni casi sì. Quando fai clic su un risultato della Ricerca Google, il tuo browser web potrebbe reindirizzare alla pagina web di destinazione anche l'indirizzo Internet, o URL, della pagina dei risultati di ricerca sotto forma di URL referrer. Talvolta, l'URL della pagina dei risultati di ricerca potrebbe contenere la query di ricerca che hai inserito. Se utilizzi la ricerca SSL (la funzione di ricerca criptata di Google), nella maggior parte dei casi i termini di ricerca non vengono inviati come parte dell'URL negli URL referrer. Questo comportamento può fare eccezione, ad esempio se utilizzi alcuni browser meno diffusi. Ulteriori informazioni sulla ricerca SSL sono disponibili qui. Le query di ricerca o le informazioni contenute nell'URL referrer potrebbero essere disponibili mediante Google Analytics o un'API (Application Programming Interface). Inoltre, gli inserzionisti potrebbero ricevere informazioni relative all' esatte parole chiave che hanno determinato il clic su un annuncio.</p>"
   ]
 ];
+$tabs = [
+  [
+    'label' => 'Introduzione',
+    'active' => false
+  ],
+  [
+    'label' => 'Norme sulla privacy',
+    'active' => false
+  ],
+  [
+    'label' => 'Termini di servizio',
+    'active' => false
+  ],
+  [
+    'label' => 'Tecnologie',
+    'active' => false
+  ],
+  [
+    'label' => 'Domande frequenti',
+    'active' => true
+  ]
+];
 ?>
 
 <!DOCTYPE html>
@@ -52,8 +74,30 @@ $faqs = [
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Domande frequenti - Privacy e termini - Google</title>
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+  <header class="main-header">
+    <div class="heading">
+      <img class="logo" src="./img/logo-google.png" alt="Google logo">
+      <h1>Privacy e termini</h1>
+    </div>
+    <nav class="main-nav">
+      <ul class="tabs">
+        <?php
+        foreach($tabs as $tab) {
+          $label = $tab['label'];
+          $active = $tab['active'];
+        ?>
+        <li class="tab <?= $active ? 'active' : '' ?>">
+          <?= $label ?>
+        </li>
+        <?php
+        }
+        ?>
+      </ul>
+    </nav>
+  </header>
   <main>
     <?php
     foreach($faqs as $faq) {
