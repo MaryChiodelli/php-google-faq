@@ -99,18 +99,20 @@ $tabs = [
     </nav>
   </header>
   <main>
-    <?php
-    foreach($faqs as $faq) {
-      $question = $faq['question'];
-      $answer = $faq['answer'];
-    ?>
-    <section>
-      <?= $question ?>
-      <?= $answer ?>
-    </section>
-    <?php
-    }
-    ?>
+    <div class="container">
+      <?php
+      foreach($faqs as $faq) {
+        $question = $faq['question'];
+        $answer = $faq['answer'];
+      ?>
+      <section>
+        <?= $question ?>
+        <?= $answer ?>
+      </section>
+      <?php
+      }
+      ?>
+    </div>
   </main>
 </body>
 </html>
